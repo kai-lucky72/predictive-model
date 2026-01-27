@@ -12,13 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -29,7 +25,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-n@47si#-skt9oj*52y00&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
 
-ALLOWED_HOSTS = ["*"] # Updated to allow all for initial deployment, restrict later
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -47,14 +43,23 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware", # Whitenoise for static files
+]
+
+# Only add Whitenoise if it can be imported (prevents crash if not installed locally)
+try:
+    import whitenoise
+    MIDDLEWARE.append("whitenoise.middleware.WhiteNoiseMiddleware")
+except ImportError:
+    pass
+
+MIDDLEWARE.extend([
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-]
+])
 
 ROOT_URLCONF = "student_ml.urls"
 
