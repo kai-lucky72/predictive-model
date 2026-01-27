@@ -4,7 +4,7 @@ import json
 def test_prediction():
     url = "http://127.0.0.1:8000/api/predict/"
     payload = {
-        "hours_studied": 12,
+        "hours_studied": 1,
         "previous_scores": 78,
         "extracurricular": True,
         "sleep_hours": 2,
