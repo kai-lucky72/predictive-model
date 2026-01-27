@@ -1,5 +1,9 @@
-django
+Django
 djangorestframework
 pandas
 scikit-learn
 joblib
+gunicorn
+whitenoise
+python-dotenv
+numpy
