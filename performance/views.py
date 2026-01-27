@@ -9,7 +9,7 @@ from huggingface_hub import hf_hub_download
 
 # Configuration
 model_path = os.path.join(os.path.dirname(__file__), 'model.pkl')
-HF_REPO_ID = os.environ.get("HF_REPO_ID", "kai-lucky72/student-performance-model")
+HF_REPO_ID = os.environ.get("HF_REPO_ID", "snakail/student-performance-model")
 MODEL = None
 
 def get_model():

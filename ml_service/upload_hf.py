@@ -15,7 +15,7 @@ def upload_model():
     api = HfApi()
     
     # We'll use a generic repo name, user can change if needed
-    repo_id = "kai-lucky72/student-performance-model"
+    repo_id = "snakail/student-performance-model"
     
     try:
         print(f"Creating/Accessing repository: {repo_id}...")
