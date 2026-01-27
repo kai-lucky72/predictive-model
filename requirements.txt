@@ -7,3 +7,4 @@ gunicorn
 whitenoise
 python-dotenv
 numpy
+huggingface_hub
